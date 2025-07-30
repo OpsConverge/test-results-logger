@@ -1,4 +1,4 @@
-name: CI - Test Loggers
+name: CI - Test Logger
 
 on:
   push:
