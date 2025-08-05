@@ -8,8 +8,14 @@
 //   });
 // });
 
-test('randomly flaky test', () => {
-  const pass = Math.random() > 0.5;
-  expect(pass).toBe(true);
+// test('randomly flaky test', () => {
+//   const pass = Math.random() > 0.5;
+//   expect(pass).toBe(true);
+// });
+
+test('intentionally flaky test', () => {
+  const run = process.env.TEST_RUN || Math.floor(Math.random() * 100);
+  const isFlaky = run % 2 === 0;
+  expect(isFlaky).toBe(true);
 });
 
