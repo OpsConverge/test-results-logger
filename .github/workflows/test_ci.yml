@@ -1,9 +1,18 @@
 name: Run Flaky Test
 
 on:
-  workflow_dispatch: # Allows manual runs
   push:
     branches: [ main ] # Or any branch you're using
+  workflow_dispatch:
+    inputs:
+      triggered_by:
+        description: 'Who triggered this workflow'
+        required: false
+        default: 'manual'
+      scheduled_test_id:
+        description: 'ID of the scheduled test'
+        required: false
+        type: string
 
 jobs:
   test:
